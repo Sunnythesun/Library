@@ -13,25 +13,38 @@
 <body>
 
     <form>
+
+        <div class="header">
+            <h1>your library.</h1>
+        </div>
+
         <h1>Add book</h1>
 
         <label for="Title">Title:</label>
-        <input type="text" placeholder="Enter book name" required>
+        <input type="text" id="inputTitle" placeholder="Enter book name" required>
 
-        <label for="Author">Title:</label>
-        <input type="text" placeholder="Enter author name" required>
+        <label for="Author">Author:</label>
+        <input type="text" id="inputAuthor" placeholder="Enter author name" required>
 
-        <label for="Number of Pages">Title:</label>
-        <input type="text" placeholder="Enter number of Pages" required>
+        <label for="Number of Pages">Pages:</label>
+        <input type="text" id="inputPages" placeholder="Enter number of Pages" required>
 
         <p>Read Status:</p>
-        <input type="radio" name="readStatus" value="Read" required>
+        <input type="radio" id="inputStatus" name="readStatus" value="Read" required>
         <label for="Read Status">Read</label>
-        <input type="radio" name="readStatus" value="Not Read" required>
+        <input type="radio" id="inputStatus" name="readStatus" value="Not Read" required>
         <label for="Read Status">Not Read</label>
 
+        <input type="submit" value="Submit">
 
     </form>
+
+    <br>
+
+    <h1>Books</h1>
+    <p id="library"></p>
+
+
 
 </body>
 
