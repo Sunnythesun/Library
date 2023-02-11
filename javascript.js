@@ -49,6 +49,8 @@ form.addEventListener('submit', function (event) {
     //closes modal when submitting
     modal.style.display = "none";
 
+    document.getElementById("form").reset();
+
 });
 
 for (let i = 0; i < myLibrary.length; i++) {
@@ -67,9 +69,12 @@ btn.onclick = function () {
 
 span.onclick = function () {
     modal.style.display = "none";
+    document.getElementById("form").reset();
 }
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+    document.getElementById("form").reset();
+
 } 
