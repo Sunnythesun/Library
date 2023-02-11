@@ -46,9 +46,30 @@ form.addEventListener('submit', function (event) {
         myLibrary[i].info();
     }
 
+    //closes modal when submitting
+    modal.style.display = "none";
+
 });
 
 for (let i = 0; i < myLibrary.length; i++) {
     myLibrary[i].info();
 }
 
+
+//modal
+var modal = document.getElementById("modal");
+var btn = document.getElementById("modalButton");
+var span = document.getElementsByClassName("closeModal")[0];
+
+btn.onclick = function () {
+    modal.style.display = "block";
+}
+
+span.onclick = function () {
+    modal.style.display = "none";
+}
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+} 

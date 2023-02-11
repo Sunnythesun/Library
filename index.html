@@ -12,40 +12,48 @@
 
 <body>
 
-    <form id="form">
+    <div class="header">
+        <h1>your library.</h1>
+    </div>
 
-        <div class="header">
-            <h1>your library.</h1>
+    <br>
+
+    <!-- modal with form in it -->
+    <button id="modalButton">Add Book</button>
+    <div id="modal" class="modal">
+        <div class="modalContent">
+            <span class="closeModal">&times;</span>
+            <form id="form">
+
+                <br>
+                <label for="Title" class="formHeading">Title:</label>
+                <br>
+                <input type="text" id="inputTitle" placeholder="Enter book name" required>
+                <br>
+
+                <label for="Author" class="formHeading"></label>Author:</label>
+                <br>
+                <input type="text" id="inputAuthor" placeholder="Enter author name" required>
+                <br>
+
+                <label for="Number of Pages" class="formHeading">Pages:</label>
+                <br>
+                <input type="text" id="inputPages" placeholder="Enter number of Pages" required>
+                <br>
+
+                <p>Read Status:</p>
+                <input type="radio" id="statusRead" name="readStatus" value="Read" required>
+                <label for="Read Status">Read</label>
+                <input type="radio" id="statusNotRead" name="readStatus" value="Not Read" required>
+                <label for="Read Status">Not Read</label>
+
+                <br>
+
+                <button type="submit" id="submitButton">Submit</button>
+
+            </form>
         </div>
-
-        <h1>Add book</h1>
-
-        <label for="Title" class="formHeading">Title:</label>
-        <br>
-        <input type="text" id="inputTitle" placeholder="Enter book name" required>
-        <br>
-
-        <label for="Author" class="formHeading"></label>Author:</label>
-        <br>
-        <input type="text" id="inputAuthor" placeholder="Enter author name" required>
-        <br>
-
-        <label for="Number of Pages" class="formHeading">Pages:</label>
-        <br>
-        <input type="text" id="inputPages" placeholder="Enter number of Pages" required>
-        <br>
-
-        <p>Read Status:</p>
-        <input type="radio" id="statusRead" name="readStatus" value="Read" required>
-        <label for="Read Status">Read</label>
-        <input type="radio" id="statusNotRead" name="readStatus" value="Not Read" required>
-        <label for="Read Status">Not Read</label>
-
-        <br>
-
-        <button type="submit" id="submitButton">Submit</button>
-
-    </form>
+    </div>
 
     <br>
 
