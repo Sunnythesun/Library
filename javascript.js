@@ -12,18 +12,17 @@ function Book(title, author, pages, readStatus) {
     this.readStatus = readStatus;
 
     this.info = function () {
-        document.getElementById("library").innerHTML += ("'" + title + "'" + " by " + author + ", " + "Pages: " + pages + ", " + "Status: " + readStatus + "<br>");
+        return "'" + title + "'" + " by " + author + "\n" + "Pages: " + pages + "\n" + "Status: " + readStatus;
     }
-
 }
 
 const shogun = new Book("Shogun", "James Clavell", "1152", "Read");
-const taipan = new Book("Tai-Pan", "James Clavell", "727", "Read");
-const gaijin = new Book("Gai-Jin", "James Clavell", "1126", "Not Read");
+const hp1 = new Book("Harry Potter and the Philosopher's Stone", "JK Rowling", "223", "Read");
+const wap = new Book("War and Peace", "Leo Tolstoy", "1215", "Not Read");
 
 myLibrary.push(shogun);
-myLibrary.push(taipan);
-myLibrary.push(gaijin);
+myLibrary.push(hp1);
+myLibrary.push(wap);
 
 
 //add book form
@@ -44,7 +43,7 @@ form.addEventListener('submit', function (event) {
 
     document.getElementById("library").innerHTML = "";
 
-    for (let i = 0; i < myLibrary.length; i++) {
+    for (let i = 0; i < myLibrary.length; i++) {                                //FIX THIS
         myLibrary[i].info();
     }
 
@@ -56,7 +55,16 @@ form.addEventListener('submit', function (event) {
 
 
 for (let i = 0; i < myLibrary.length; i++) {
-    myLibrary[i].info();
+    //myLibrary[i].info();
+
+    //generate cards dynamically
+    const card = document.createElement("div");
+    card.className = "card";
+    document.getElementById("flex").appendChild(card);
+
+    const cardText = document.createElement("p");
+    cardText.innerText = myLibrary[i].info();;
+    card.appendChild(cardText);
 }
 
 
@@ -77,13 +85,4 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-
-// //create card for book
-const card = document.createElement("div");
-card.className = "card";
-document.getElementById("flex").appendChild(card);
-
-const cardText = document.createElement("p");
-cardText.innerText = "hello";
-card.appendChild(cardText);
 
