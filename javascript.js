@@ -1,4 +1,6 @@
 let myLibrary = [];
+let card;
+
 
 const form = document.querySelector('#form');
 const inputTitle = document.querySelector('#inputTitle');
@@ -41,31 +43,35 @@ form.addEventListener('submit', function (event) {
     const inputBook = new Book(inputTitle.value, inputAuthor.value, inputPages.value, readStatus);
     myLibrary.push(inputBook);
 
-    document.getElementById("library").innerHTML = "";
+    //document.getElementById("library").innerHTML = "";
 
-    for (let i = 0; i < myLibrary.length; i++) {                                //FIX THIS
+    for (let i = 0; i < myLibrary.length; i++) {
         myLibrary[i].info();
     }
 
     //closes modal when submitting
     modal.style.display = "none";
     document.getElementById("form").reset();
-
+    document.getElementById("flex").innerHTML = "";
+    createCards();
 });
 
+function createCards() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        myLibrary[i].info();
 
-for (let i = 0; i < myLibrary.length; i++) {
-    //myLibrary[i].info();
+        //generate cards dynamically
+        card = document.createElement("div");
+        card.className = "card";
+        document.getElementById("flex").appendChild(card);
 
-    //generate cards dynamically
-    const card = document.createElement("div");
-    card.className = "card";
-    document.getElementById("flex").appendChild(card);
-
-    const cardText = document.createElement("p");
-    cardText.innerText = myLibrary[i].info();;
-    card.appendChild(cardText);
+        const cardText = document.createElement("p");
+        cardText.innerText = myLibrary[i].info();;
+        card.appendChild(cardText);
+    }
 }
+
+createCards();
 
 
 //modal
