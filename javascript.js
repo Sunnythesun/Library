@@ -1,6 +1,4 @@
 let myLibrary = [];
-let card;
-
 
 const form = document.querySelector('#form');
 const inputTitle = document.querySelector('#inputTitle');
@@ -61,13 +59,24 @@ function createCards() {
         myLibrary[i].info();
 
         //generate cards dynamically
-        card = document.createElement("div");
+        const card = document.createElement("div");
         card.className = "card";
         document.getElementById("flex").appendChild(card);
 
+        const closeCard = document.createElement("span");
+        closeCard.className = "closeCard";
+        closeCard.innerHTML = "&times;";
+        card.appendChild(closeCard);
+
         const cardText = document.createElement("p");
-        cardText.innerText = myLibrary[i].info();;
+        cardText.innerText = myLibrary[i].info();
         card.appendChild(cardText);
+
+        //remove card and object from array
+        closeCard.addEventListener("click", function () {
+            card.remove();
+            myLibrary.splice(i, 1);
+        });
     }
 }
 
